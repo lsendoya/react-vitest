@@ -1,41 +1,34 @@
-import { rows } from ".";
-import { SetCalculate } from "../hook/calculator";
 import { VStack, HStack, Input, Button } from "@chakra-ui/react";
+import { SetCalculate } from "../hook/calculator";
+import { rows } from ".";
+import { useBreakPoint } from "../hook/break-point";
 
 export const Calculator = () => {
-  const { handleClickEqual, handleClickReset, handleClickSetValue,  handleONOFF,value } =
-    SetCalculate();
-
-  function state(value: number | string) {
-    if (value === "CE") return handleClickReset();
-
-    if (value === "=") return handleClickEqual();
-
-    if(value === "ON/OFF") return handleONOFF();
-
-    return handleClickSetValue(value);
-  }
+  const { state, value } = SetCalculate();
+  const { setWith } = useBreakPoint();
 
   return (
     <VStack
-      w="sm"
+      w={setWith()}
       h="lg"
-      bg="blue.300"
+      bg="#EAD7BB"
       justifyContent={"center"}
+      alignItems={"center"}
       borderRadius={"3xl"}
     >
-      <Input w="90%" fontSize={"4xl"} h="4rem" value={value} />
-      <VStack w="90%" h="sm" bg="green.200" justifyContent={"center "}>
+      <Input w="90%" fontSize={"4xl"} h="4rem" value={value} bg="#FFF2D8" />
+      <VStack w="90%" h="sm" justifyContent={"center "}>
         {rows.map((row, indx) => (
           <HStack w="90%" key={indx}>
             {row.map((sign, index) => (
               <Button
-                fontSize={`${sign === "ON/OFF" ? "1rem" : "xl"}`}
+                fontSize={`${sign === "ON/OFF" ? "0.8rem" : "xl"}`}
                 w="25%"
                 h="4rem"
                 p="0.5rem"
-                onClick={state(sign)} 
+                onClick={state(sign)}
                 key={index}
+                bg="#BCA37F"
               >
                 {sign}
               </Button>

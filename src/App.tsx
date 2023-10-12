@@ -1,10 +1,10 @@
 import { Grid } from "@chakra-ui/react";
-import "./App.css";
 import { Calculator } from "./Components";
+import "./App.css";
 
 function App() {
   return (
-    <Grid minW="3xl" h={"100vh"}   justifyContent={"center"}>
+    <Grid w="100%" h="100vh" justifyContent={"center"}>
       <Calculator />
     </Grid>
   );

@@ -40,8 +40,8 @@ export function SetCalculate() {
     if (value.toString() === "0") {
       return;
     }
-
-    setValue(evaluate(value));
+    const result = Number(evaluate(value));
+    setValue(result.toString().slice(0, 15));
     setToogle(!toogle);
   };
 
@@ -50,11 +50,19 @@ export function SetCalculate() {
     setToogle(true);
   };
 
+  function state(value: number | string) {
+    if (value === "CE" || value === "C" || value === "%")
+      return handleClickReset();
+
+    if (value === "=") return handleClickEqual();
+
+    if (value === "ON/OFF") return handleONOFF();
+
+    return handleClickSetValue(value);
+  }
+
   return {
     value,
-    handleClickEqual,
-    handleClickReset,
-    handleClickSetValue,
-    handleONOFF,
+    state,
   };
 }

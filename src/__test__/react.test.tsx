@@ -167,7 +167,7 @@ describe("Calculator", () => {
     expect(input.value).toBe("2");
   });
 
-  it('should return 0 when ON/OFF is clicked', () => {
+  it("should return 0 when ON/OFF is clicked", () => {
     const one = screen.getByText("1") as HTMLButtonElement;
     fireEvent.click(one);
     const plus = screen.getByText("+") as HTMLButtonElement;
@@ -183,7 +183,7 @@ describe("Calculator", () => {
     const toogle = screen.getByText("ON/OFF") as HTMLButtonElement;
     fireEvent.click(toogle);
     expect(input.value).toBe("");
-  })
+  });
 
   it("should turn of when clicking on ON/OFF button", () => {
     const input = screen.getByRole("textbox") as HTMLInputElement;
@@ -191,8 +191,53 @@ describe("Calculator", () => {
     const toogle = screen.getByText("ON/OFF") as HTMLButtonElement;
     fireEvent.click(toogle);
     expect(input.value).toBe("0");
+  });
 
-  })
+  it("should return un lenth determined when there is many digits", () => {
+    const eigth = screen.getByText("8") as HTMLButtonElement;
+    fireEvent.click(eigth);
+    const divide = screen.getByText("/") as HTMLButtonElement;
+    fireEvent.click(divide);
+    const three = screen.getByText("3") as HTMLButtonElement;
+    fireEvent.click(three);
+    const equal = screen.getByText("=") as HTMLButtonElement;
+    fireEvent.click(equal);
 
+    const input = screen.getByRole("textbox") as HTMLInputElement;
+    expect(input.value).toHaveLength(15);
+  });
 
+  it("when click on C should return 0", () => {
+    const input = screen.getByRole("textbox") as HTMLInputElement;
+    const reset = screen.getByText("C") as HTMLButtonElement;
+    fireEvent.click(reset);
+    expect(input.value).toBe("0");
+  });
+
+  it("when click on % should return 0", () => {
+    const input = screen.getByRole("textbox") as HTMLInputElement;
+    const percentage = screen.getByText("%") as HTMLButtonElement;
+    fireEvent.click(percentage);
+    expect(input.value).toBe("0");
+  });
+
+  it("should click on C and then on other number should return the number", () => {
+    const input = screen.getByRole("textbox") as HTMLInputElement;
+    const two = screen.getByText("2") as HTMLButtonElement;
+    fireEvent.click(two);
+    const reset = screen.getByText("C") as HTMLButtonElement;
+    fireEvent.click(reset);
+    fireEvent.click(two);
+    expect(input.value).toBe("2");
+  });
+
+  it("should click on % and then on other number should return the number", () => {
+    const input = screen.getByRole("textbox") as HTMLInputElement;
+    const two = screen.getByText("2") as HTMLButtonElement;
+    fireEvent.click(two);
+    const percentage = screen.getByText("%") as HTMLButtonElement;
+    fireEvent.click(percentage);
+    fireEvent.click(two);
+    expect(input.value).toBe("2");
+  });
 });
