@@ -16,7 +16,7 @@ export const Calculator = () => {
       alignItems={"center"}
       borderRadius={"3xl"}
     >
-      <Input w="90%" fontSize={"4xl"} h="4rem" value={value} bg="#FFF2D8" />
+      <Input w="81%" fontSize={"4xl"} h="4rem" value={value} bg="#FFF2D8" />
       <VStack w="90%" h="sm" justifyContent={"center "}>
         {rows.map((row, indx) => (
           <HStack w="90%" key={indx}>

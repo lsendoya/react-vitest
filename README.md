@@ -1,27 +1,43 @@
-# React + TypeScript + Vite
+# Calculator React with TypeScript and Chakra UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a sample project that demonstrates how to create a responsive calculator using React with TypeScript and the Chakra UI component library. In addition, unit tests have been implemented using Vite to ensure 100% test coverage.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Functional calculator with basic operations.
+- Responsive user interface to adapt to different screen sizes.
+- Unit tests with Vite and Jest to ensure 100% test coverage.
+- Written in TypeScript to enhance code security and maintainability.
 
-## Expanding the ESLint configuration
+## Screenshots
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+![Alt text](image-1.png)
 
-- Configure the top-level `parserOptions` property like this:
+![Alt text](image-2.png)
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+## Installation
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Follow these steps to run the project on your machine:
+
+1. Clone this repository:
+
+   ```bash
+   git clone https://github.com/tuusuario/calculadora-react.git
+   cd calculadora-react
+   yarn install
+   yarn dev
+   ```
+
+la aplicacion está disponible en <http://localhost:5173/>
+
+## Pruebas Unitarias
+
+To run unit tests and check for 100% coverage, use the following commands:
+
+```bash
+   yarn run test
+   yarn run coverage
+   ```
+
+Author
+Luis Hernando Sendoya Serrato
